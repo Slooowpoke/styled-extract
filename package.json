@@ -1,0 +1,83 @@
+{
+  "name": "styled-extract",
+  "version": "1.0.0",
+  "description": "A tiny utility to make 'styled-like' components with Vanilla-Extract",
+  "author": "Mali Coxon <mail@malicoxon.co.uk>",
+  "license": "MIT",
+  "repository": "Slooowpoke/styled-extract",
+  "source": "src/styled.ts",
+  "main": "dist/styled.js",
+  "module": "dist/styled.module.js",
+  "unpkg": "dist/styled.umd.js",
+  "types": "dist/styled.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/styled.module.js",
+      "require": "./dist/styled.js"
+    }
+  },
+  "keywords": [
+    "styled",
+    "vanilla",
+    "extract",
+    "variants",
+    "emotion",
+    "styled-components",
+    "css-in-js"
+  ],
+  "scripts": {
+    "check": "npm run -s typecheck && npm run -s lint && npm run -s check:format",
+    "typecheck": "tsc --noEmit",
+    "test": "jest --collect-coverage",
+    "lint": "eslint 'src/**'",
+    "format": "prettier --write '**'",
+    "check:format": "prettier --check '**'",
+    "build": "rm -rf dist && microbundle --inline none",
+    "precommit": "lint-staged",
+    "prepublishOnly": "npm run -s build"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^12.1.4",
+    "@types/jest": "^27.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "@vanilla-extract/babel-plugin": "^1.1.5",
+    "@vanilla-extract/recipes": "^0.2.4",
+    "eslint": "^8.12.0",
+    "eslint-plugin-react": "^7.29.4",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "lint-staged": "^12.3.7",
+    "microbundle": "^0.14.2",
+    "parcel": "^2.4.0",
+    "prettier": "^2.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "ava": {
+    "extensions": [
+      "ts",
+      "tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
