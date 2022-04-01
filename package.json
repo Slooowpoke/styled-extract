@@ -5,6 +5,9 @@
   "author": "Mali Coxon <mail@malicoxon.co.uk>",
   "license": "MIT",
   "repository": "Slooowpoke/styled-extract",
+  "publishConfig": {
+    "registry":"https://registry.npmjs.org/"
+  },
   "source": "src/styled.ts",
   "main": "dist/styled.js",
   "module": "dist/styled.module.js",
@@ -37,9 +40,11 @@
     "check:format": "prettier --check '**'",
     "build": "rm -rf dist && microbundle --inline none",
     "precommit": "lint-staged",
-    "prepublishOnly": "npm run -s build"
+    "prepublishOnly": "npm run -s build",
+    "release": "standard-version"
   },
   "devDependencies": {
+    "standard-version": "^9.3.2",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@types/jest": "^27.4.1",
@@ -65,15 +70,6 @@
     "*": [
       "prettier --write",
       "git add"
-    ]
-  },
-  "ava": {
-    "extensions": [
-      "ts",
-      "tsx"
-    ],
-    "require": [
-      "ts-node/register"
     ]
   },
   "peerDependencies": {
